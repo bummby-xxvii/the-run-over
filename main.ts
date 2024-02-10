@@ -729,6 +729,7 @@ game.showLongText("your decision will be blindly picked by you", DialogLayout.Bo
 game.showLongText("i wish you the best of luck...", DialogLayout.Bottom)
 story.showPlayerChoices("right", "left")
 if (story.checkLastAnswer("left")) {
+    game.setGameOverMessage(false, "maybe you should go another way")
     game.gameOver(false)
 } else if (story.checkLastAnswer("right")) {
     game.showLongText("correct....", DialogLayout.Bottom)
@@ -739,8 +740,10 @@ game.showLongText("Move on old friend....", DialogLayout.Bottom)
 story.showPlayerChoices("right", "left", "middle")
 if (story.checkLastAnswer("left")) {
     game.showLongText("you hit a dead end...", DialogLayout.Bottom)
+    game.setGameOverMessage(false, "maybe you should go another way")
     game.gameOver(false)
 } else if (story.checkLastAnswer("right")) {
+    game.setGameOverMessage(false, "you suck at this don't you?")
     game.gameOver(false)
 } else if (story.checkLastAnswer("middle")) {
     game.showLongText("correct....", DialogLayout.Bottom)
@@ -749,16 +752,19 @@ if (story.checkLastAnswer("left")) {
 game.showLongText("...", DialogLayout.Bottom)
 story.showPlayerChoices("right", "left", "middle")
 if (story.checkLastAnswer("left")) {
+    game.setGameOverMessage(false, "you suck at this don't you?")
     game.gameOver(false)
 } else if (story.checkLastAnswer("right")) {
     game.showLongText("correct....", DialogLayout.Bottom)
     directionPlayerSelected = 2
 } else if (story.checkLastAnswer("middle")) {
+    game.setGameOverMessage(false, "cmon man you gotta go right")
     game.gameOver(false)
 }
 game.showLongText("...", DialogLayout.Bottom)
 story.showPlayerChoices("middle", "left")
 if (story.checkLastAnswer("left")) {
+    game.setGameOverMessage(false, "L bozo")
     game.gameOver(false)
 } else if (story.checkLastAnswer("middle")) {
     game.showLongText("correct....", DialogLayout.Bottom)
@@ -770,6 +776,7 @@ if (story.checkLastAnswer("right")) {
     game.showLongText("correct....", DialogLayout.Bottom)
     directionPlayerSelected = 4
 } else if (story.checkLastAnswer("middle")) {
+    game.setGameOverMessage(false, "you suck")
     game.gameOver(false)
 }
 music.stopAllSounds()
